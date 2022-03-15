@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, abort, request
-from flask_login import login_required
-from app.request import search_repositories
+from flask_login import login_required, current_user
+from app.request import search_repositories, get_repos
 from . import main
 
 #from .forms import exampleForm
@@ -13,12 +13,14 @@ from . import main
 def index():
     message = 'Test'
     search_repos= request.args.get('repo_query')
+    repos = get_repos()
+    user = current_user
 
     if search_repos:
       return redirect(url_for('.search', search_term = search_repos))
 
   
-    return render_template('index.html')
+    return render_template('index.html', repos = repos, user = user)
     
 
 @main.route('/search/<search_term>')

@@ -47,7 +47,33 @@ def process_results(search_repo_list):
         if html_url:
             repo_object = Repository(html_url, description, owner, language, language_url, name)
             search_results.append(repo_object)
+    #print(repo_object.description)
     print(repo_object.description)
     return search_results
+
+def get_repos():
+    base_url = 'https://api.github.com/repositories'
+    get_repos_url = 'https://api.github.com/repositories'.format()
+
+    with urllib.request.urlopen(get_repos_url) as url:
+        trending_repo_data = url.read()
+        trending_repo_response = json.loads(trending_repo_data)
+
+        trending_results = None
+
+        #if trending_repo_response:
+        #html_url = trending_repo_response.get('html_url')
+        #owner = trending_repo_response.get('owner.login')
+        #description = trending_repo_response.get('description')
+        #language = trending_repo_response.get('language')
+        #language_url = trending_repo_response.get('languages_url')
+        #name = trending_repo_response.get('name')
+
+        trending_results_list = trending_repo_response
+        trending_results = process_results(trending_results_list)
+
+        #repo_object = Repository(html_url, description, owner, language, language_url, name)
+    
+    return trending_results
 
 
