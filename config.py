@@ -6,7 +6,7 @@ class Config:
     """
     SECRET_KEY = os.environ.get('SECRET_KEY')   
     #API_KEY = os.environ.get('API_KEY')
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://<<user>>:<<Password>>@localhost/<<db_name>>'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sharon:12345678@localhost/github'
     # SQLALCHEMY_TRACK_MODIFICATIONS = True
     # UPLOADED_PHOTOS_DEST = 'app/static/photos'  
     #   email configurations

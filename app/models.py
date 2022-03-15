@@ -11,7 +11,7 @@ from . import db
 #     bio = db.Column(db.String(255))
     
 
-class Repository:
+class Repository(db.Model):
     '''
     Repo class from repo request via github API
     '''
@@ -22,3 +22,18 @@ class Repository:
         self.description = description
         self.language = language
         self.other_languages = other_languages
+
+    __tablename__ = 'repos'
+
+    id = db.Column(db.Integer,primary_key = True)
+    html_url = db.Column(db.String())
+    owner = db.Column(db.String())
+    description = db.Column(db.Text())
+    language = db.Column(db.String())
+    language_url = db.Column(db.String())
+    #user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+
+class User:
+    '''
+    User class
+    '''

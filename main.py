@@ -1,11 +1,11 @@
-from app import create_app
+from app import create_app, db
 from flask_script import Manager, Server
 '''
 If connecting to a database make sure to initialize
 '''
 # from app import create_app, db (add db to line 1)
 # from app.models import User
-# from flask_migrate import Migrate, MigrateCommand
+from flask_migrate import Migrate, MigrateCommand
 
 # creating app instance
 # TODO(S) 
@@ -21,8 +21,8 @@ manager.add_command('server', Server)
 
 
 # IF HOOKING TO A DATABASE
-# migrate = Migrate(app, db)
-# manager.add_command('db', MigrateCommand)
+migrate = Migrate(app, db)
+manager.add_command('db', MigrateCommand)
 
 
 @manager.command
@@ -37,7 +37,7 @@ def test():
 
 @manager.shell
 def make_shell_context():
-    return dict(app=app)
+    return dict(app=app, db = db)
     # return dict(app=app, db=db, '''User=User''' )
 
 
