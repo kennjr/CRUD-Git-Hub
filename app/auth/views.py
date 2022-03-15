@@ -5,9 +5,9 @@ THE SIGN UP FUNCTIONALITY SEND THE EMAIL YOU MAY WISH TO DISCONNECT THAT IF YOU 
 '''
 
 
-# from flask import render_template,url_for,flash,redirect,request
+from flask import render_template,url_for,flash,redirect,request
 # from flask_login import login_user, logout_user, login_required
-# from . import auth
+from . import auth
 # from ..models import User
 # from .forms import RegForm,LoginForm
 # from .. import db

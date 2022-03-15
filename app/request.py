@@ -42,11 +42,12 @@ def process_results(search_repo_list):
         description = repo_item.get('description')
         language = repo_item.get('language')
         language_url = repo_item.get('languages_url')
+        name = repo_item.get('name')
 
         if html_url:
-            repo_object = Repository(html_url, owner, description, language, language_url)
+            repo_object = Repository(html_url, description, owner, language, language_url, name)
             search_results.append(repo_object)
-    print(search_results)
+    print(repo_object.description)
     return search_results
 
 

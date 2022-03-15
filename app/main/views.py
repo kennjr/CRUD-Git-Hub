@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, abort, request
-
+from flask_login import login_required
 from app.request import search_repositories
 from . import main
 
@@ -22,7 +22,9 @@ def index():
     
 
 @main.route('/search/<search_term>')
+@login_required
 def search(search_term):
+
     '''
     display search results
     '''
