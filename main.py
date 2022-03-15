@@ -1,16 +1,45 @@
-# This is a sample Python script.
+from app import create_app
+from flask_script import Manager, Server
+'''
+If connecting to a database make sure to initialize
+'''
+# from app import create_app, db (add db to line 1)
+# from app.models import User
+# from flask_migrate import Migrate, MigrateCommand
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# creating app instance
+# TODO(S) 
+'''DEVELOPMENT'''
+app = create_app('development')
+'''PRODUCTION'''
+# app = create_app('production')
+'''TESTING'''
+# app = create_app('test')
+
+manager = Manager(app)
+manager.add_command('server', Server)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# IF HOOKING TO A DATABASE
+# migrate = Migrate(app, db)
+# manager.add_command('db', MigrateCommand)
 
 
-# Press the green button in the gutter to run the script.
+@manager.command
+def test():
+    '''
+    run unit tests
+    '''
+    import unittest
+    tests = unittest.TestLoader().discover('tests')
+    unittest.TextTestRunner(verbosity=2).run(tests)
+
+
+@manager.shell
+def make_shell_context():
+    return dict(app=app)
+    # return dict(app=app, db=db, '''User=User''' )
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    manager.run()
