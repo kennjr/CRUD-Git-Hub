@@ -1,8 +1,7 @@
 '''THIS IS JUST A SAMPLE FORM TEMPLATE YOU MAY ADD YOUR OWN FORMS AS YOUR USECASE NEEDS OR MODIFY THIS'''
-
-# from flask_wtf import FlaskForm
-# from wtforms import  StringField, SelectField, TextAreaField, SubmitField
-# from wtforms.validators import Required
+from flask_wtf import FlaskForm
+from wtforms import  StringField, SelectField, TextAreaField, SubmitField
+from wtforms.validators import Required
 
 # class exampleForm(FlaskForm):
 #     title = StringField('Title', validators=[Required()])

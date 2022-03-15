@@ -22,7 +22,7 @@ def index():
     
 
 @main.route('/search/<search_term>')
-@login_required
+#@login_required
 def search(search_term):
 
     '''

@@ -6,13 +6,23 @@
 <!--block content here-->
 <p>test {{message}}</p>
 
-<div class="container">
-  <form>
-      <input type="text" name="repo_query" placeholder="Search for a repo" class="form-control">
-      <input type="submit"  value="Submit" class="btn btn-default">
-  </form>
-
+<div>
+  {% if current_user.is_authenticated %}
+  <li style="color:white;padding:15px;">{{current_user.username}}</li>
+  <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+  <div class="container">
+    <form>
+        <input type="text" name="repo_query" placeholder="Search for a repo" class="form-control">
+        <input type="submit"  value="Submit" class="btn btn-default">
+    </form>
+  
+  </div>
+  {% else %}
+  <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+  {%endif%}
 </div>
+
+
 
 <p></p>
 
