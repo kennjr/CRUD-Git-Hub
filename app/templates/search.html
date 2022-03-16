@@ -1,7 +1,14 @@
 
-<h3>search results demo; display {{search_term}} repos</h3>
-
-{% for repo in repos %}
-
-  <p>{{repo.name}}</p>
-{% endfor %}
+<div class="container">
+  <li><a href="/">Home</a></li>
+  <h2>search results demo; display found repos</h2>
+  <li><a href="/">Home</a></li>{% for repo in repos %}
+  
+    <h3>{{repo.name}}</h3>
+    <p>{{repo.description}}</p>
+    <p>owner {{repo.owner.login}}</p>
+    <p>avatar{{repo.owner.avatar_url}}</p>
+    <button> <i class="material-icons">favorite</i></a>
+    </button>
+  {% endfor %}
+</div>

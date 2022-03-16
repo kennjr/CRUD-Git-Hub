@@ -24,7 +24,7 @@ def index():
     
 
 @main.route('/search/<search_term>')
-#@login_required
+@login_required
 def search(search_term):
 
     '''
@@ -34,6 +34,11 @@ def search(search_term):
     search_term_list = search_term.split(" ") 
     search_term_format = "+".join(search_term_list)
     searched_repos = search_repositories(search_term_format)
-    print(searched_repos)
+    
     return render_template ('search.html', repos = searched_repos)
+
+
+#@main.route('')
+#@login_required
+#def
 

@@ -22,6 +22,8 @@ def search_repositories(search_term):
         search_repo_data = url.read()
         search_repo_response = json.loads(search_repo_data)
 
+     
+
         search_repo_results = None
 
         if search_repo_response['items']:
@@ -38,17 +40,19 @@ def process_results(search_repo_list):
     search_results = []
     for repo_item in search_repo_list:
         html_url = repo_item.get('html_url')
-        owner = repo_item.get('owner.login')
+        owner = repo_item.get('owner')
         description = repo_item.get('description')
         language = repo_item.get('language')
         language_url = repo_item.get('languages_url')
         name = repo_item.get('name')
 
         if html_url:
-            repo_object = Repository(html_url, description, owner, language, language_url, name)
+            repo_object = Repository(html_url, description, owner, language, language_url, name )
+            
             search_results.append(repo_object)
-    #print(repo_object.description)
-    print(repo_object.description)
+   
+    owner_avatar = owner.get('avatar_url')
+
     return search_results
 
 def get_repos():
@@ -76,4 +80,36 @@ def get_repos():
     
     return trending_results
 
+
+#def get_user_profile(github_username):
+  
+    get_profile_url = 'https://api.github.com/users/sharonkorir'.format(github_username)
+    github_username = 'sharonkorir'
+
+    with urllib.request.urlopen(get_profile_url) as url:
+        profile_details_data = url.read()
+        profile_details_response = json.loads(profile_details_data)
+        print("profile_details_response")
+        profile_object = None
+        if profile_details_response:
+            avatar = profile_details_response.get('avatar_url')
+
+          
+    print('test user avatar')
+    return profile_object
+
+
+def favorite(repo_id):
+   '''
+   function to fetch user profile pic
+   '''
+
+   pass
+
+def remove_favorite(repo_id):
+   '''
+   function to fetch user profile pic
+   '''
+
+   pass
 
