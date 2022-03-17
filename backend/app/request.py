@@ -56,7 +56,7 @@ def process_results(search_repo_list):
     return search_results
 
 def get_repos():
-    base_url = 'https://api.github.com/repositories'
+    #base_url = 'https://api.github.com/repositories'
     get_repos_url = 'https://api.github.com/repositories'.format()
 
     with urllib.request.urlopen(get_repos_url) as url:
@@ -76,7 +76,7 @@ def get_repos():
         trending_results_list = trending_repo_response
         trending_results = process_results(trending_results_list)
 
-    
+    print(trending_results)
     return trending_results
 
 

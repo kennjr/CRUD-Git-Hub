@@ -37,7 +37,6 @@ def search(search_term):
     search_term_list = search_term.split(" ") 
     search_term_format = "+".join(search_term_list)
     searched_repos = search_repositories(search_term_format)
-    repo_id = Repository.repo_id
     
     return render_template ('search.html', repos = searched_repos)
 
@@ -80,31 +79,6 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('index.html',uname=uname))
-
-
-
-#@main.route('/favorite', methods= ['POST'])
-#def favorite():
-    value = request.form.get('savedRepo')
-    name = request.form.get('repoName')
-
-
-    
-  
-    
-    #name = repo.name
-    #html_url = repo.html_url
-    #language = repo.language
-    #language_url = repo.language_url
-    #description = repo.description
-    #owner = repo.owner
-    #repo_id = repo_id
-
-    #fave_repo = Repository(name = name, html_url = html_url, language = language, language_url = language_url, description = description, owner = owner, repo_id=repo_id)
-
-    #favorite_repo = Repository.save_repo(repo)
-    print('test', name)
-    return render_template('saved.html', repo = value)
 
 
 @main.route('/test', methods=['GET'])
@@ -152,7 +126,7 @@ def create_users():
   #return make_response(jsonify({new_user}))
   
 @main.route('/repos', methods=['GET'])
-def get_repos():
+def fetch_repos():
   all_repos = Repository.query.all()
   
   results = {}
@@ -182,3 +156,18 @@ def favorite_repos():
   db.session.commit()
   print(jsonify(new_repo))
   return make_response(jsonify({new_repo}))
+
+@main.route('/repo', methods = ['POST'])
+@login_required
+def like_repo(repo):
+    repo_data = request.get_json(repo)
+    new_repo = Repository(owner=repo_data['owner'],description=repo_data['description'], name=repo_data['name'],languages_url=repo_data['languages_url'], html_url=repo_data['html_url'],url=repo_data['url'])
+    favorite_repos = []
+    #user_id = related_comments.users.id
+    #user = User.query.filter_by(id = user_id).first()
+
+    db.session.add(new_repo)
+    db.session.commit()
+      
+
+    return render_template('search.html', repos = new_repo)
