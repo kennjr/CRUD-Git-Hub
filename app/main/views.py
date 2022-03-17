@@ -1,5 +1,5 @@
 
-from flask import render_template, redirect, url_for, abort, request, jsonify
+from flask import render_template, redirect, url_for, abort, request, jsonify, make_response
 from flask_login import login_required, current_user
 from app.request import search_repositories, get_repos
 from . import main
@@ -8,7 +8,8 @@ from .forms import UpdateProfile
 #from flask_login import login_required, current_user
 from ..models import User, Repository
 from .. import db, photos
-
+import json
+from json import JSONEncoder
 
 @main.route('/')
 def index():
@@ -82,8 +83,8 @@ def update_pic(uname):
 
 
 
-@main.route('/favorite', methods= ['POST'])
-def favorite():
+#@main.route('/favorite', methods= ['POST'])
+#def favorite():
     value = request.form.get('savedRepo')
     name = request.form.get('repoName')
 
@@ -143,12 +144,41 @@ def get_users():
 @main.route('/add_user', methods=['POST'])
 def create_users():
   user_data = request.get_json()
-  new_user = User(username=user_data['username'],email=user_data['email'],bio=user_data['bio'],profile_pic_path=user_data['profile_pic_path'],pass_secure=user_data['pass_secure'],fave_repos=user_data['fave_repos'], id=user_data['id'])
+  new_user = User(username=user_data['username'],email=user_data['email'],bio=user_data['bio'],profile_pic_path=user_data['profile_pic_path'],pass_secure=user_data['pass_secure'])
 
   db.session.add(new_user)
   db.session.commit()
-  return jsonify(new_user)
+  print(jsonify(new_user))
+  #return make_response(jsonify({new_user}))
   
+@main.route('/repos', methods=['GET'])
+def get_repos():
+  all_repos = Repository.query.all()
+  
+  results = {}
+  results['repos'] = []
+  import json
+  for repo in all_repos:
+      curr_repo = {}
+      curr_repo['name'] = repo.name
+      curr_repo['description'] = repo.description
+      curr_repo['html_url'] = repo.html_url
+      curr_repo['url'] = repo.url
+      curr_repo['languages_url'] = repo.languages_url
+      curr_repo['owner'] = repo.owner
       
+      
+      #results.append(curr_user)
+      results['repos'].append(curr_repo)
+  print(results)
+  return jsonify(results['repos'])
     
-    
+@main.route('/add_repo', methods=['POST'])
+def favorite_repos():
+  repo_data = request.get_json()
+  new_repo = Repository(owner=repo_data['owner'],description=repo_data['description'], name=repo_data['name'],languages_url=repo_data['languages_url'], html_url=repo_data['html_url'],url=repo_data['url'])
+
+  db.session.add(new_repo)
+  db.session.commit()
+  print(jsonify(new_repo))
+  return make_response(jsonify({new_repo}))

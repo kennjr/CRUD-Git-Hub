@@ -18,7 +18,7 @@ class User(UserMixin, db.Model):
     bio = db.Column(db.String(200))
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255))
-    fave_repos = db.relationship('Repository',backref = 'user',lazy = "dynamic")
+    #fave_repos = db.relationship('Repository',backref = 'users',lazy = "dynamic")
 
   
       
@@ -50,14 +50,12 @@ class Repository(db.Model):
     Repo class from repo request via github API
     '''
 
-    def __init__(self, html_url, description, owner, language, language_url, name, repo_id, url):
+    def __init__(self, html_url, description, owner, languages_url, name, url):
         self.html_url = html_url
         self.description = description
         self.owner = owner
-        self.language = language
-        self.language_url = language_url
+        self.languages_url = languages_url
         self.name = name
-        self.repo_id = repo_id
         self.url = url
 
     __tablename__ = 'repos'
@@ -68,10 +66,8 @@ class Repository(db.Model):
     owner = db.Column(db.String())
     name = db.Column(db.String())
     description = db.Column(db.Text())
-    language = db.Column(db.String())
-    language_url = db.Column(db.String())
-    repo_id = db.Column(db.Integer())
-    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    languages_url = db.Column(db.String())
+    #user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
 
     
     def __repr__(self):

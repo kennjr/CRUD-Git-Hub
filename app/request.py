@@ -42,14 +42,13 @@ def process_results(search_repo_list):
         html_url = repo_item.get('html_url')
         owner = repo_item.get('owner')
         description = repo_item.get('description')
-        language = repo_item.get('language')
-        language_url = repo_item.get('languages_url')
+        languages_url = repo_item.get('languages_url')
         name = repo_item.get('name')
-        repo_id = repo_item.get('id')
         url = repo_item.get('url')
+        
 
         if html_url:
-            repo_object = Repository(html_url, description, owner, language, language_url, name, repo_id, url )
+            repo_object = Repository(html_url, description, owner, languages_url, name, url )
             
             search_results.append(repo_object)
   
