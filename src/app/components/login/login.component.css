@@ -1,0 +1,196 @@
+:root{
+    --primary-color: #dcdcdc;
+    --accent-color: #3385FF;
+    box-sizing: border-box;
+    --basic-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.description{
+    font-weight: 400;
+    font-size: 16px;
+    color: #b3b3b3;
+}
+ 
+.text_btn{
+    display: inline-block;
+    background: #3385FF;
+    color: #fff;
+    border: none;
+    padding: 10px 1.5vw;
+    margin: 3vh 0;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: inherit; 
+}
+
+.informative_txt{
+    padding: 0 3vw;
+    font-weight: bold;
+    width: 50%;
+}
+
+.login_container {
+    width: 30%;
+    margin: 7% 7%;
+    overflow: auto;
+    min-height: 50%;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.loginFooter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+}
+
+.loginForm{
+    padding: 30px;
+}
+
+.loginHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 20px;
+    overflow: auto;
+    color: #000;
+    margin-top: 4vh;
+    padding: 0 30px;
+    font-weight: normal;
+}
+
+.btn {
+    display: inline-block;
+    background: #3385FF;
+    color: #fff;
+    border: none;
+    padding: 10px 0px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.btn:focus {
+    outline: none;
+}
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-block {
+    margin-top: 20px;
+    width: 50%;
+}
+
+.btnContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.form-control {
+    margin: 20px 0;
+}
+
+.form-control label {
+    display: block;
+    margin-left: 10px;
+}
+  
+.form-control input {
+    width: 100%;
+    height: 40px;
+    margin: 5px;
+    padding: 3px 20px;
+    font-size: 17px;
+    border-radius: 5px;
+    border-width: 0.05px;
+    border-color: #fff;
+}
+
+.form-control label{
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+}
+  
+.form-control input:focus{
+    outline: none;
+}
+
+/* Styling for the phone */
+@media only screen and (max-width: 640px) { 
+    /* Here are some changes*/
+    .container {
+        width: 70%;
+        margin: 15% auto;
+        overflow: auto;
+        min-height: 50vh;
+        border: 1px solid #ddd;
+        box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+        border-radius: 5px;
+    }
+}
+
+/* Styling for the phone */
+@media only screen and (min-width: 641px) and (max-width: 880px) { 
+    /* Here are some changes*/
+    .container {
+        width: 50%;
+        margin: 10% auto;
+        overflow: auto;
+        min-height: 50vh;
+        border: 1px solid #ddd;
+        box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+        border-radius: 5px;
+    }
+}
+
+/* Styling for the phone */
+@media only screen 
+    and (min-width: 881px)
+    and (max-width: 1200px) { 
+    /* Here are some changes*/
+    .container {
+        width: 40%;
+        margin: 7% auto;
+        overflow: auto;
+        min-height: 50vh;
+        border: 1px solid #ddd;
+        box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+        border-radius: 5px;
+    }
+}

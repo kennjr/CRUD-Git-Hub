@@ -1,0 +1,114 @@
+.userItemContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 80%;
+}
+
+.userItemContainer:hover{
+    cursor: pointer;
+}
+
+.avatarContainer{
+    margin: 5px 20px;
+    justify-content: center;
+}
+
+.avatarContainer > img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.userInfoContainer > p{
+    margin: 5px 10px;
+}
+
+#userItem_username{
+    /* font-weight: bold; */
+    font-weight: 700;
+    font-size: 19px;
+}
+
+#userItem_email{
+    /* font-weight: bold; */
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.align-vertically-space-between{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.underlinetxt:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.btn-block{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+/* Styling for the phone */
+@media only screen and (max-width: 640px) { 
+    /* Here are some changes*/
+    #userItem_username{
+        /* font-weight: bold; */
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .avatarContainer{
+        margin: 5px 10px;
+        justify-content: center;
+    }
+    .avatarContainer > img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+}
+
+/* Styling for the phone */
+@media only screen and (min-width: 641px) and (max-width: 880px) { 
+    /* Here are some changes*/
+    #userItem_username{
+        /* font-weight: bold; */
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .avatarContainer{
+        margin: 5px 10px;
+        justify-content: center;
+    }
+    .avatarContainer > img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+}
+
+/* Styling for the phone */
+@media only screen 
+    and (min-width: 881px)
+    and (max-width: 1200px) { 
+    /* Here are some changes*/
+    #userItem_username{
+        /* font-weight: bold; */
+        font-weight: 600;
+        font-size: 17px;
+    }
+    .avatarContainer{
+        margin: 5px 10px;
+        justify-content: center;
+    }
+    .avatarContainer > img{
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+    }
+}

@@ -1,0 +1,57 @@
+.container{
+    display: block;
+}
+
+.nav_container{
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 3vh 4vw;/* vh */
+    font-size: larger;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.nav_left_opts{
+    display: flex;
+    flex-direction: row;
+    font-weight: 500;
+}
+
+.nav_left_opts > p{
+    margin: 0.5vh 1vw;
+}
+
+.nav_right_opts > p{
+    margin: 0.5vh 1vw;
+}
+
+.nav_container p:hover{
+    cursor: pointer;
+}
+
+.icon:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.repo_name_txt:hover{
+    text-decoration: underline;
+}
+
+.repo_info_container{
+    width: 75%;
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
+    border-color: #dcdcdc;
+    border-width: 1.5px;
+    border-style: solid;
+    display: flex;
+    flex-direction: column-reverse;
+}

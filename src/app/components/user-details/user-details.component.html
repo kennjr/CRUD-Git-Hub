@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="loginHeader">
+        <img class="avatar_img" [src]="user.avatar_url" alt="Avatar image">
+        <p>{{user.login}}</p>
+        <div class="userListOptions">
+            <div class="userListOpt" (click)="changeVisibleList ('Followers')">
+                <p class="infoText">{{followersList.length}} followers</p>
+                <div [ngClass]="{highlightline :currentlyVisibleList === 'Followers'}"></div>
+            </div>
+            <p>&#8226;</p>
+            <div class="userListOpt" (click)="changeVisibleList ('Following')">
+                <p class="infoText">{{followingList.length}} following</p>
+                <div [ngClass]="{highlightline :currentlyVisibleList === 'Following'}"></div>
+            </div>
+            <p>&#8226;</p>
+            <div class="userListOpt" (click)="changeVisibleList ('Repos')">
+                <p class="infoText">{{reposList.length}} repos</p>
+                <div [ngClass]="{highlightline :currentlyVisibleList === 'Repos'}"></div>
+            </div>
+        </div>
+    </div>
+    <div class="mainAboutSection">
+        <div *ngIf="currentlyVisibleList === 'Repos'" class="info_list">
+            <ul *ngFor="let repo of reposList" class="list">
+                <li>
+                    <div>
+                        <p (click)="goToLink(repo.html_url)" appUnderline>{{repo.name}}</p>
+                        <p class="smallFont">Created : {{repo.created_at|date}}</p>
+                        <p class="smallFont">Updated : {{repo.updated_at|date}}</p>
+                        <p class="repo_lang smallFont">{{repo.language}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="currentlyVisibleList === 'Followers'" class="info_list">
+            <ul *ngFor="let follower of followersList" class="list">
+                <li>
+                    <div (click)="goToLink(follower.html_url)" class="followInfoContainer">
+                        <img [src]="follower.avatar_url" alt="Follower avatar image">
+                        <p>{{follower.login}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="currentlyVisibleList === 'Following'" class="info_list">
+            <ul *ngFor="let follower of followingList" class="list">
+                <li>
+                    <div (click)="goToLink(follower.html_url)" class="followInfoContainer">
+                        <img [src]="follower.avatar_url" alt="Follower avatar image">
+                        <p>{{follower.login}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+      
+</div>
+

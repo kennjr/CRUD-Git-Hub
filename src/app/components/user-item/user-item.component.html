@@ -1,0 +1,15 @@
+<div class="align-vertically-space-between">
+    <div class="userItemContainer" (click)="viewDetails()">
+        <div class="avatarContainer">
+            <img [src]="user.avatar_url" alt="User avatar image">
+        </div>
+        <div class="userInfoContainer">
+            <p id="userItem_username">{{user.username}}</p>     
+        </div>
+    </div>
+    <div class="btn-block">
+        <p [ngStyle]="{'margin-left':'auto'}" (click)="openInGithub()" class="underlinetxt"><fa-icon class="iconItem" [icon]="faHeart"></fa-icon></p>
+    </div>
+</div>
+
+<div class="divider" [ngStyle]="{'margin-bottom':'25px', 'margin-left':'50px',  'margin-right':'30px'}"></div>

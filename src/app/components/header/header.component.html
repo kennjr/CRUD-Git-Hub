@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="headerContainer">
+        <div routerLink="/" class="homeIcon">
+            <p *ngIf="!hasRoute('/') && !hasRoute('/login') && !hasRoute('/signup') && !hasRoute('/about') && !hasRoute('/profile')" id="backArrow"><fa-icon (click)="navigateBack()" class="iconItem" [icon]="faArrow"></fa-icon></p>
+            <h3 id="homeText">CRUD-GitHub</h3>
+        </div>
+        <div class="navOptions">
+            <div routerLink="about" *ngIf="hasRoute('/')" class="btn favourite_btn">
+                <p><fa-icon (click)="showFitlerOptions()" class="iconItem" [icon]="faHeart"></fa-icon></p>
+                <p class="favourites_txt">Favorites</p>
+            </div>
+            <div routerLink="signup" *ngIf="hasRoute('/login')" class="login_btn">
+                <p>SignUp</p>
+            </div>
+            <div routerLink="about" *ngIf="!hasRoute('/') && !hasRoute('/signup') && !hasRoute('/about')" class="login_btn">
+                <p>About</p>
+            </div>
+            <div routerLink="login" *ngIf="hasRoute('/signup')" class="login_btn">
+                <p>Login</p>
+            </div>
+            <img *ngIf="!hasRoute('/login') && !hasRoute('/signup')" routerLink="profile" class="user_profile_img" src="https://avatars.githubusercontent.com/u/93252545?v=4" >
+        </div>
+    </div>
+    <div *ngIf="showFilterOptions" class="filterOptContainer">
+        <div (click)="changeSearchType('Users')" [ngClass]="{'highlightit' : searchType === 'Users'}" class="filterOpt">
+            <p>Users</p>
+        </div>
+        <div (click)="changeSearchType('Repos')" [ngClass]="{'highlightit' : searchType === 'Repos'}" class="filterOpt">
+            <p>Repositories</p>
+        </div>
+        <p class="closeFilterOptionsIcon"><fa-icon (click)="showFitlerOptions()" class="iconItem" [icon]="faTimes"></fa-icon></p>
+    </div>
+    
+    
+</div>

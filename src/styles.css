@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+    --accent-color:crimson;
+}
+
+a:visited{
+    color: var(--accent-color);
+}
+
+.divider{
+    height: 0.1px;
+    width: 100%;
+    background-color: #ddd;
+}
+
+.highlightline {
+    border-bottom: 2px solid #fff;
+}

@@ -1,0 +1,37 @@
+<div class="container" >
+    <div class="informative_txt">
+        <p class="title">Access Your Favorite Repos Without A Hassle!</p>
+
+        <p class="description"><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis natus tempore animi facere adipisci quia doloribus recusandae necessitatibus rerum ipsum eveniet eaque esse commodi illo magnam quis nostrum voluptatibus reiciendis, qui itaque aut? Error, dolorum.</p>
+        <p class="text_btn">About</p>
+    </div>
+    <div class="login_container">
+        <div class="loginHeader">
+            <p>Sign Up</p>
+        </div>
+        <form (ngSubmit)="loginAttempt()" class="loginForm">
+            <div class="form-control">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Name" name="name" [(ngModel)]="name">
+            </div>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="email" id="day" placeholder="Email" name="email" [(ngModel)]="email">
+            </div>
+            <div class="form-control">
+                <label for="gh_username">Github username</label>
+                <input type="text" id="gh_username" placeholder="Github username" name="gh_username" [(ngModel)]="gh_username">
+            </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password" name="password" [(ngModel)]="password">
+            </div>
+            <div class="btnContainer">
+                <input type="submit" value="Create Account" class="btn btn-block">
+            </div>
+            
+        </form>
+           
+    </div>
+</div>
+

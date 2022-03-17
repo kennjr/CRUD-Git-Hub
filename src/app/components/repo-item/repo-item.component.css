@@ -1,0 +1,53 @@
+.userItemContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1.5vh;
+}
+
+.userInfoContainer > p{
+    margin: 5px 10px;
+}
+
+#userItem_username{
+    /* font-weight: bold; */
+    font-weight: 600;
+    font-size: 19px;
+}
+
+.userItem_email{
+    /* font-weight: bold; */
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.underlinetxt{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.avatarContainer{
+    margin: 5px 20px;
+    justify-content: center;
+}
+
+.avatarContainer > img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.heart_txt{
+    align-self: flex-end;
+}
+
+.iconItem{
+    font-size: large;
+    color: #3385FF;
+    padding: 0.5vh 0.5vw;
+}
+
+.iconItem:hover{
+    cursor: pointer;
+}
