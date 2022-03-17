@@ -1,0 +1,14 @@
+<div class="userItemContainer">
+    <div class="avatarContainer">
+        <img src="https://avatars.githubusercontent.com/u/93252545?v=4" alt="User avatar image">
+    </div>
+    <div class="userInfoContainer">
+        <p id="userItem_username">{{repo.repo_name}}</p>
+        <p class="userItem_email">{{repo.repo_description}}</p>
+        <p class="userItem_email">{{repo.major_lang}}</p>
+    </div>
+    
+        <p [ngStyle]="{'margin-left':'auto'}" class="heart_txt"><fa-icon class="iconItem" [icon]="faHeart"></fa-icon></p>
+</div>
+<div class="divider" [ngStyle]="{'margin-bottom':'25px', 'margin-left':'50px',  'margin-right':'50px'}"></div>
+

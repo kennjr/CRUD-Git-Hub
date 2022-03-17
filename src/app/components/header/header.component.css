@@ -1,0 +1,280 @@
+.headerContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.iconItem{
+    padding: 5px;
+}
+
+.iconItem:hover{
+    cursor: pointer;
+}
+
+.homeIcon{
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 15px;
+}
+
+#backArrow{
+    /* margin: 0px 20px; */
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+#backArrow:hover{
+    cursor: pointer;
+}
+
+#homeText {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#homeText:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.favourites_txt{
+    margin-left: 0.5vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.favourite_btn:hover{
+    color: #3385FF;
+}
+
+.user_profile_img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0 1vw; /* vh */
+}
+
+.navOptions{
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0px 20px;
+}
+
+.searchField{
+    width: 80%;
+    margin-right: 20px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 5px 10px;
+    border-color: #ddd;
+    font-size: 17px;
+}
+
+.searchField:focus{
+    outline: none;
+}
+
+.navOptions div{
+    margin: 0px 10px;
+}
+
+.searchContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 70%;
+    border-radius: 50px;
+    padding: 0px 15px;
+}
+
+.btn{
+    padding: 0px 25px; 
+    border-radius: 50px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ddd;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+    text-align: center;
+}
+
+.btn:hover{
+    cursor: pointer;
+    /* background-color: #ddd; */
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.login_btn{
+    padding: 0px 25px; 
+    margin-right: 2vw;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dcdcdc;
+    
+    height: 60%;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+    text-align: center;
+    
+}
+
+.login_btn:hover{
+    background-color: #3385FF;
+    color: #fff;
+}
+
+.newQuote h2+p{
+    margin-left: 10px;
+}
+
+.filterOptContainer{
+    display: flex;
+    flex-direction: row;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: white;
+}
+
+/* .filtersDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
+.closeFilterOptionsIcon{
+    font-size: 20px;
+    font-weight: 200;
+    margin-left: auto;
+    margin-right: 20px;
+    color: grey;
+}
+
+.filterOpt{
+    padding: 0px 25px; 
+    margin: 0px 10px;
+    border-radius: 50px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ddd;
+    color: #000;
+    height: 10%;
+    text-align: center;
+}
+
+.highlightit {
+    color: #fff;
+    background-color: crimson;
+}
+
+.filterOpt:hover{
+    cursor: pointer;
+}
+
+/* Styling for the phone */
+@media only screen and (max-width: 640px) { 
+    /* Here are some changes*/
+    .homeIcon{
+        width: 8%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0px 15px;
+    }
+
+    .homeIcon > h3{
+        font-size: 15px;
+    }
+
+    .navOptions{
+        width: 92%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0px 20px;
+    }
+    #backArrow{
+        /* margin: 0px 20px; */
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+/* Styling for the phone */
+@media only screen and (min-width: 641px) and (max-width: 880px) { 
+    /* Here are some changes*/
+    .homeIcon{
+        width: 8%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0px 15px;
+    }
+
+    .homeIcon > h3{
+        font-size: 15px;
+    }
+    .navOptions{
+        width: 92%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0px 20px;
+    }
+    #backArrow{
+        /* margin: 0px 20px; */
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+/* Styling for the phone */
+@media only screen 
+    and (min-width: 881px)
+    and (max-width: 1200px) { 
+    /* Here are some changes*/
+    .homeIcon{
+        width: 12%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0px 15px;
+    }
+
+    .homeIcon > h3{
+        font-size: 15px;
+    }
+
+    .navOptions{
+        width: 88%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0px 20px;
+    }
+    #backArrow{
+        /* margin: 0px 20px; */
+        margin-left: 20px;
+        margin-right: 30px;
+    }
+}

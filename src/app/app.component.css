@@ -1,0 +1,45 @@
+.appHeader{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+}
+.router{
+    margin: 0 0;
+}
+
+#mainDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.appHeader + .router {
+    padding-top: 60px;
+}
+
+/* Styling for the phone */
+@media only screen and (max-width: 640px) { 
+    /* Here are some changes*/
+    .router{
+        margin: 0 0;
+    }
+}
+
+/* Styling for the phone */
+@media only screen and (min-width: 641px) and (max-width: 880px) { 
+    /* Here are some changes*/
+    .router{
+        margin: 0 0;
+    }
+}
+
+/* Styling for the phone */
+@media only screen 
+    and (min-width: 881px)
+    and (max-width: 1200px) { 
+    /* Here are some changes*/
+    .router{
+        margin: 0 0;
+    }
+}
