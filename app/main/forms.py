@@ -8,3 +8,7 @@ from wtforms.validators import Required
 #     category = SelectField('Category', choices=[('Choise_1','Choise_1'),('Choise_2','Choise_2'),('Choise_3','Choise_3'),('Choise_4','Choise_4')],validators=[Required()])
 #     post = TextAreaField('Your Pitch', validators=[Required()])
 #     submit = SubmitField('Pitch')
+
+class UpdateProfile(FlaskForm):
+    bio = TextAreaField('Tell us about you.',validators = [Required()])
+    submit = SubmitField('Submit')

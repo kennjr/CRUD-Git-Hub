@@ -5,10 +5,17 @@
   <li><a href="/">Home</a></li>{% for repo in repos %}
   
     <h3>{{repo.name}}</h3>
+    <p>{{repo.html_url}}</p>
     <p>{{repo.description}}</p>
     <p>owner {{repo.owner.login}}</p>
     <p>avatar{{repo.owner.avatar_url}}</p>
+    <p>repo id {{repo.repo_id}}</p>
     <button> <i class="material-icons">favorite</i></a>
     </button>
+    <form method="POST" action="{{ url_for('.favorite')}}">
+      <input type="hidden" value="{{repo.name}}" name="repoName">
+      <button class="btn-outline-info" type="submit"
+              value="{{repo}}" name="savedRepo">Save</button>
+    </form>
   {% endfor %}
 </div>

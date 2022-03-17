@@ -45,13 +45,14 @@ def process_results(search_repo_list):
         language = repo_item.get('language')
         language_url = repo_item.get('languages_url')
         name = repo_item.get('name')
+        repo_id = repo_item.get('id')
+        url = repo_item.get('url')
 
         if html_url:
-            repo_object = Repository(html_url, description, owner, language, language_url, name )
+            repo_object = Repository(html_url, description, owner, language, language_url, name, repo_id, url )
             
             search_results.append(repo_object)
-   
-    owner_avatar = owner.get('avatar_url')
+  
 
     return search_results
 
@@ -76,40 +77,10 @@ def get_repos():
         trending_results_list = trending_repo_response
         trending_results = process_results(trending_results_list)
 
-        #repo_object = Repository(html_url, description, owner, language, language_url, name)
     
     return trending_results
 
 
-#def get_user_profile(github_username):
-  
-    get_profile_url = 'https://api.github.com/users/sharonkorir'.format(github_username)
-    github_username = 'sharonkorir'
-
-    with urllib.request.urlopen(get_profile_url) as url:
-        profile_details_data = url.read()
-        profile_details_response = json.loads(profile_details_data)
-        print("profile_details_response")
-        profile_object = None
-        if profile_details_response:
-            avatar = profile_details_response.get('avatar_url')
-
-          
-    print('test user avatar')
-    return profile_object
 
 
-def favorite(repo_id):
-   '''
-   function to fetch user profile pic
-   '''
-
-   pass
-
-def remove_favorite(repo_id):
-   '''
-   function to fetch user profile pic
-   '''
-
-   pass
 

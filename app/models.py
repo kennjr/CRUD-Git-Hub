@@ -11,14 +11,17 @@ class User(UserMixin, db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key = True)
-    username = db.Column(db.String(255))
+    username = db.Column(db.String(255),index = True)
     gh_username = db.Column(db.String(255),index = True)
     email = db.Column(db.String(255),unique = True,index = True)
     #role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
-    #bio = db.Column(db.String(255))
+    bio = db.Column(db.String(200))
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255))
     fave_repos = db.relationship('Repository',backref = 'user',lazy = "dynamic")
+
+  
+      
     
     @property
     def password(self):
@@ -32,12 +35,14 @@ class User(UserMixin, db.Model):
     def verify_password(self,password):
         return check_password_hash(self.pass_secure,password)
 
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
+
     def __repr__(self):
         return f'User {self.username}'
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
 
 
 class Repository(db.Model):
@@ -45,29 +50,30 @@ class Repository(db.Model):
     Repo class from repo request via github API
     '''
 
-    def __init__(self, html_url, description, owner, language, language_url, name):
+    def __init__(self, html_url, description, owner, language, language_url, name, repo_id, url):
         self.html_url = html_url
         self.description = description
         self.owner = owner
         self.language = language
         self.language_url = language_url
         self.name = name
+        self.repo_id = repo_id
+        self.url = url
 
     __tablename__ = 'repos'
 
     id = db.Column(db.Integer,primary_key = True)
     html_url = db.Column(db.String())
+    url = db.Column(db.String())
     owner = db.Column(db.String())
     name = db.Column(db.String())
     description = db.Column(db.Text())
     language = db.Column(db.String())
     language_url = db.Column(db.String())
+    repo_id = db.Column(db.Integer())
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
 
-   
-      
-
-
+    
     def __repr__(self):
-        return f'Repository {self.id}'
+        return f'Repository {self.name}'
 

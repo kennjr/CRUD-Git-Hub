@@ -1,4 +1,5 @@
 {% extends 'base.html'%} 
+{% import "material/wtf.html" as wtf %}
 
 {% block styles %}
     {{ super() }}
@@ -15,6 +16,40 @@
   
   <h1>Home Page Demo</h1>
   <h4>Welcome {{user.username}}</h4>
+  <div class="row">
+    <h3 style="text-align: center;"> {{user.username| upper}} </h3>
+  </div>
+  <div class="row">
+    <div class="col s4">
+      {% if user.profile_pic_path %}
+      <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="circle responsive-img" style="max-height: 400px; max-width: 400px;">
+      {%else%}
+      <p>No profile picture</p>
+      {% endif %}
+      {% if user == current_user %}
+      <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+        <input type="file"  name="photo" class="form-control" required>
+        <input type="submit">
+      </form>
+      {% endif %}
+    </div>
+    <div class="col s2"></div>
+    <div class="col s6">
+      {% if user.bio %}
+      <h3></h3>
+      <p> {{user.bio}}</p>
+      {%else%}
+      <p> {{user.username| capitalize}} has no bio </p>
+      {% endif %}
+      {% if user == current_user %}
+      <button><a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a></button>
+      {% endif %}
+      <div class="container">
+        {{wtf.quick_form(form)}}
+      </div>
+    </div>
+  </div>
+</div>
   <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
   <div class="container">
     <form>
