@@ -1,0 +1,29 @@
+{% extends 'base.html'%} 
+{%block content%}
+<div class="container">
+  <div class="row">
+    <li><a href="/">Home</a></li>
+    <h5>search results demo; display found repos</h5>
+  </div>
+  
+  <div class="row">
+    {% for repo in repos %}
+  
+    <a href="{{repo.html_url}}"><h6>{{repo.name}}</h6></a>
+    <p></p>
+    <p>{{repo.description}}</p>
+    <p>owner {{repo.owner.login}}</p>
+    <p>avatar{{repo.owner.avatar_url}}</p>
+    <p>repo id {{repo.repo_id}}</p>
+    <button> <i class="material-icons">favorite</i></a>
+    </button>
+    <!--<form method="POST" action="">
+      <input type="hidden" value="{{repo.name}}" name="repoName">
+      <button class="btn-outline-info" type="submit"
+              value="{{repo}}" name="savedRepo">Save</button>
+    </form>-->
+  {% endfor %}
+  </div>
+</div>
+
+{%endblock%}
